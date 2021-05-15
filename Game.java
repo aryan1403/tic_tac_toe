@@ -8,10 +8,10 @@ import java.awt.Image;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-public class Game implements ActionListener
-{
+
+public class Game implements ActionListener {
 	JFrame frame = new JFrame("Tic Tac Toe");
-	
+
 	JLabel gamelabel = new JLabel();
 	JLabel winlose = new JLabel();
 
@@ -40,7 +40,7 @@ public class Game implements ActionListener
 
 	JButton b1 = new JButton();
 	JButton b2 = new JButton();
-	JButton b3 = new JButton();	
+	JButton b3 = new JButton();
 	JButton b4 = new JButton();
 	JButton b5 = new JButton();
 	JButton b6 = new JButton();
@@ -52,124 +52,120 @@ public class Game implements ActionListener
 	int[] arr = new int[9];
 	int[] test = new int[9];
 	int[][] check = new int[3][3];
-	Game()
-	{
-		exit.setBounds(450,0,50,50);
+
+	Game() {
+		exit.setBounds(450, 0, 50, 50);
 		exit.setFocusable(false);
 		exit.setIcon(changedimension(exiticon, 50, 50));
 		exit.addActionListener(e -> frame.dispose());
 		exit.setBackground(Color.gray);
-		exit.addMouseListener(new MouseAdapter()
-	        {
-		   	public void mouseEntered(MouseEvent e) {
+		exit.addMouseListener(new MouseAdapter() {
+			public void mouseEntered(MouseEvent e) {
 				exit.setIcon(changedimension(exit1, 40, 40));
-		 	}
+			}
 
-		 	public void mouseExited(MouseEvent e) {
+			public void mouseExited(MouseEvent e) {
 				exit.setIcon(changedimension(exiticon, 50, 50));
-		 	}
-	        });
+			}
+		});
 
-		back.setBounds(0,0,50,50);
+		back.setBounds(0, 0, 50, 50);
 		back.setFocusable(false);
 		back.setIcon(changedimension(backbutton, 50, 50));
 		back.addActionListener(e -> frame.dispose());
 		back.setBackground(Color.gray);
-		back.addMouseListener(new MouseAdapter()
-	        {
-		   	public void mouseEntered(MouseEvent e) {
+		back.addMouseListener(new MouseAdapter() {
+			public void mouseEntered(MouseEvent e) {
 				back.setIcon(changedimension(back1, 40, 40));
-		 	}
+			}
 
-		 	public void mouseExited(MouseEvent e) {
+			public void mouseExited(MouseEvent e) {
 				back.setIcon(changedimension(backbutton, 50, 50));
-		 	}
-	        });
+			}
+		});
 
-		restart.setBounds(370,0,80,50);
+		restart.setBounds(400, 0, 50, 50);
 		restart.setFocusable(false);
-		restart.setIcon(changedimension(repeat, 100, 50));
+		restart.setIcon(changedimension(repeat, 60, 50));
 		restart.addActionListener(this);
 		restart.setBackground(Color.gray);
 		restart.setText("Restart");
-		restart.addMouseListener(new MouseAdapter()
-	        {
-		   	public void mouseEntered(MouseEvent e) {
-				restart.setIcon(changedimension(repeat1, 100, 50));
-		 	}
+		restart.addMouseListener(new MouseAdapter() {
+			public void mouseEntered(MouseEvent e) {
+				restart.setIcon(changedimension(repeat1, 60, 50));
+			}
 
-		 	public void mouseExited(MouseEvent e) {
-				restart.setIcon(changedimension(repeat, 100, 50));
-		 	}
-	        });
+			public void mouseExited(MouseEvent e) {
+				restart.setIcon(changedimension(repeat, 60, 50));
+			}
+		});
 
-		settings.setBounds(0,0,50,50);
+		settings.setBounds(0, 0, 50, 50);
 		settings.setFocusable(false);
 		settings.setIcon(changedimension(sett, 50, 50));
 		settings.addActionListener(e -> frame.dispose());
 		settings.setBackground(Color.gray);
-		settings.addMouseListener(new MouseAdapter()
-	        {
-		   	public void mouseEntered(MouseEvent e) {
+		settings.addMouseListener(new MouseAdapter() {
+			public void mouseEntered(MouseEvent e) {
 				settings.setIcon(changedimension(settings1, 50, 50));
-		 	}
+			}
 
-		 	public void mouseExited(MouseEvent e) {
+			public void mouseExited(MouseEvent e) {
 				settings.setIcon(changedimension(sett, 50, 50));
-		 	}
-	        });
+			}
+		});
 
-		gamelabel.setBounds(225,0,50,50);
+		gamelabel.setBounds(225, 0, 50, 50);
 		gamelabel.setBackground(Color.gray);
 		gamelabel.setIcon(changedimension(gameicon, 50, 50));
 
-		headpanel.setBounds(0,0,500,50);
+		headpanel.setBounds(0, 0, 500, 50);
 		headpanel.setBackground(Color.gray);
 		headpanel.setLayout(null);
 		headpanel.add(exit);
-		//headpanel.add(settings);
+		// headpanel.add(settings);
 		headpanel.add(restart);
 		headpanel.add(back);
 		headpanel.add(gamelabel);
 
-		b1.setBounds(0,0,100,100);
+		b1.setBounds(0, 0, 100, 100);
 		b1.setFocusable(false);
 		b1.addActionListener(this);
 
-		b2.setBounds(100,0,100,100);
+		b2.setBounds(100, 0, 100, 100);
 		b2.setFocusable(false);
 		b2.addActionListener(this);
 
-		b3.setBounds(200,0,100,100);
+		b3.setBounds(200, 0, 100, 100);
 		b3.setFocusable(false);
 		b3.addActionListener(this);
 
-		b4.setBounds(0,100,100,100);
+		b4.setBounds(0, 100, 100, 100);
 		b4.setFocusable(false);
 		b4.addActionListener(this);
 
-		b5.setBounds(100,100,100,100);
+		b5.setBounds(100, 100, 100, 100);
 		b5.setFocusable(false);
 		b5.addActionListener(this);
 
-		b6.setBounds(200,100,100,100);
+		b6.setBounds(200, 100, 100, 100);
 		b6.setFocusable(false);
 		b6.addActionListener(this);
 
-		b7.setBounds(0,200,100,100);
+		b7.setBounds(0, 200, 100, 100);
 		b7.setFocusable(false);
 		b7.addActionListener(this);
 
-		b8.setBounds(100,200,100,100);
+		b8.setBounds(100, 200, 100, 100);
 		b8.setFocusable(false);
 		b8.addActionListener(this);
 
-		b9.setBounds(200,200,100,100);
+		b9.setBounds(200, 200, 100, 100);
 		b9.setFocusable(false);
 		b9.addActionListener(this);
 
-		middlepanel.setBounds(100,100,300,300);
-		middlepanel.setBackground(Color.gray);	
+		middlepanel.setBounds(100, 100, 300, 300);
+		middlepanel.setBackground(Color.gray);
 		middlepanel.add(settings);
 		middlepanel.setLayout(null);
 		middlepanel.add(b1);
@@ -177,32 +173,32 @@ public class Game implements ActionListener
 		middlepanel.add(b3);
 		middlepanel.add(b4);
 		middlepanel.add(b5);
-		middlepanel.add(b6);		
+		middlepanel.add(b6);
 		middlepanel.add(b7);
 		middlepanel.add(b8);
 		middlepanel.add(b9);
-		
-		winlose.setBounds(200,0,200,50);
+
+		winlose.setBounds(200, 0, 200, 50);
 		winlose.setText("You win!!");
 		winlose.setBackground(Color.gray);
 		winlose.setForeground(Color.red);
-		winlose.setFont(new Font("MV Boli",Font.BOLD,25));
+		winlose.setFont(new Font("MV Boli", Font.BOLD, 25));
 		winlose.setLayout(null);
 		winlose.setVisible(false);
 
-		bottompanel.setBounds(0,450,500,50);
-		bottompanel.setBackground(Color.gray);	
+		bottompanel.setBounds(0, 450, 500, 50);
+		bottompanel.setBackground(Color.gray);
 		bottompanel.add(settings);
 		bottompanel.add(winlose);
 		bottompanel.setLayout(null);
 
-		mainpanel.setBounds(0,0,500,500);
+		mainpanel.setBounds(0, 0, 500, 500);
 		mainpanel.setLayout(null);
 		mainpanel.add(headpanel);
-		mainpanel.add(bottompanel);	
+		mainpanel.add(bottompanel);
 		mainpanel.add(middlepanel);
-	
-		frame.setSize(500,500);
+
+		frame.setSize(500, 500);
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(null);
 		frame.setResizable(false);
@@ -211,74 +207,65 @@ public class Game implements ActionListener
 		frame.add(mainpanel);
 		frame.setIconImage(changedimension(frameicon, 50, 50).getImage());
 	}
-	public ImageIcon changedimension(ImageIcon icon, int x, int y)
-	{
+
+	public ImageIcon changedimension(ImageIcon icon, int x, int y) {
 		Image image = icon.getImage().getScaledInstance(x, y, Image.SCALE_SMOOTH);
 		ImageIcon newicon = new ImageIcon(image);
 		return newicon;
 	}
-	public int check()
-	{
-		if(b1.isEnabled() == true) 
-		{
+
+	public int check() {
+		if (b1.isEnabled() == true) {
 			counter++;
-			arr[counter-1] = 1;
-			System.out.println(arr[counter-1]);
+			arr[counter - 1] = 1;
+			System.out.println(arr[counter - 1]);
 		}
-		if(b2.isEnabled() == true) 
-		{
+		if (b2.isEnabled() == true) {
 			counter++;
-			arr[counter-1] = 2;
-			System.out.println(arr[counter-1]);
+			arr[counter - 1] = 2;
+			System.out.println(arr[counter - 1]);
 		}
-		if(b3.isEnabled() == true) 
-		{
+		if (b3.isEnabled() == true) {
 			counter++;
-			arr[counter-1] = 3;
-			System.out.println(arr[counter-1]);
+			arr[counter - 1] = 3;
+			System.out.println(arr[counter - 1]);
 		}
-		if(b4.isEnabled() == true) 
-		{	
+		if (b4.isEnabled() == true) {
 			counter++;
-			arr[counter-1] = 4;
-			System.out.println(arr[counter-1]);
+			arr[counter - 1] = 4;
+			System.out.println(arr[counter - 1]);
 		}
-		if(b5.isEnabled() == true) 
-		{
+		if (b5.isEnabled() == true) {
 			counter++;
-			arr[counter-1] = 5;
-			System.out.println(arr[counter-1]);
+			arr[counter - 1] = 5;
+			System.out.println(arr[counter - 1]);
 		}
-		if(b6.isEnabled() == true) 
-		{
+		if (b6.isEnabled() == true) {
 			counter++;
-			arr[counter-1] = 6;
-			System.out.println(arr[counter-1]);
+			arr[counter - 1] = 6;
+			System.out.println(arr[counter - 1]);
 		}
-		if(b7.isEnabled() == true) 
-		{
+		if (b7.isEnabled() == true) {
 			counter++;
-			arr[counter-1] = 7;
-			System.out.println(arr[counter-1]);
+			arr[counter - 1] = 7;
+			System.out.println(arr[counter - 1]);
 		}
-		if(b8.isEnabled() == true) 
-		{
+		if (b8.isEnabled() == true) {
 			counter++;
-			arr[counter-1] = 8;
-			System.out.println(arr[counter-1]);
+			arr[counter - 1] = 8;
+			System.out.println(arr[counter - 1]);
 		}
-		if(b9.isEnabled() == true) 
-		{
+		if (b9.isEnabled() == true) {
 			counter++;
-			arr[counter-1] = 9;
-			System.out.println(arr[counter-1]);
+			arr[counter - 1] = 9;
+			System.out.println(arr[counter - 1]);
 		}
-		System.out.println("Total number of empty spaces encountered are : "+counter);
+		System.out.println("Total number of empty spaces encountered are : " + counter);
 		return counter++;
 	}
-	public int getfreeSpaces()
-	{
-		int res = (int)(Math.random()*check());
+
+	public int getfreeSpaces() {
+		int res = (int) (Math.random() * check());
 		System.out.println("res = " + res);
 		int temp = test[res];
 		System.out.println("test[res] = " + test[res]);
@@ -286,178 +273,145 @@ public class Game implements ActionListener
 		System.out.println("arr[temp] = " + arr[temp]);
 		counter = 0;
 		/*
-		while(check(res) == false)
-		{
-			getfreeSpaces();
-		}
-		*/
-		System.out.println("The Free Space Choosed is : "+res);
+		 * while(check(res) == false) { getfreeSpaces(); }
+		 */
+		System.out.println("The Free Space Choosed is : " + res);
 		return res;
 	}
-	public void computer()
-	{
+
+	public void computer() {
 		int b = getfreeSpaces();
-		if(b == 1)
-		{
+		if (b == 1) {
 			b1.setIcon(changedimension(Y, 100, 100));
 			b1.setEnabled(false);
-			check[0][0] = 2; 
-		}
-		else if(b == 2)
-		{
+			check[0][0] = 2;
+		} else if (b == 2) {
 			b2.setIcon(changedimension(Y, 100, 100));
 			b2.setEnabled(false);
-			check[0][1] = 2; 
-		}
-		else if(b == 3)
-		{
+			check[0][1] = 2;
+		} else if (b == 3) {
 			b3.setIcon(changedimension(Y, 100, 100));
 			b3.setEnabled(false);
-			check[0][2] = 2; 
-		}
-		else if(b == 4)
-		{
+			check[0][2] = 2;
+		} else if (b == 4) {
 			b4.setIcon(changedimension(Y, 100, 100));
 			b4.setEnabled(false);
-			check[1][0] = 2; 
-		}
-		else if(b == 5)
-		{
+			check[1][0] = 2;
+		} else if (b == 5) {
 			b5.setIcon(changedimension(Y, 100, 100));
 			b5.setEnabled(false);
-			check[1][1] = 2; 
-		}
-		else if(b == 6)
-		{
+			check[1][1] = 2;
+		} else if (b == 6) {
 			b6.setIcon(changedimension(Y, 100, 100));
 			b6.setEnabled(false);
-			check[1][2] = 2; 
-		}
-		else if(b == 7)
-		{
+			check[1][2] = 2;
+		} else if (b == 7) {
 			b7.setIcon(changedimension(Y, 100, 100));
 			b7.setEnabled(false);
-			check[2][0] = 2; 
-		}
-		else if(b == 8)
-		{
+			check[2][0] = 2;
+		} else if (b == 8) {
 			b8.setIcon(changedimension(Y, 100, 100));
 			b8.setEnabled(false);
-			check[2][1] = 2; 
-		}
-		else if(b == 9)
-		{
+			check[2][1] = 2;
+		} else if (b == 9) {
 			b9.setIcon(changedimension(Y, 100, 100));
 			b9.setEnabled(false);
-			check[2][2] = 2; 
+			check[2][2] = 2;
 		}
 	}
-	public static void main(String[] args)
-	{
+
+	public static void main(String[] args) {
 		new Game();
 	}
+
 	@Override
-	public void actionPerformed(ActionEvent e)
-	{
+	public void actionPerformed(ActionEvent e) {
 		checkwin();
-		if(e.getSource() == restart)
-		{
+		if (e.getSource() == restart) {
 			enableall();
 		}
-		if(e.getSource() == b1)
-		{
-				b1.setIcon(changedimension(X, 100, 100));
-				b1.setEnabled(false);
-				check[0][0] = 1; 
-				checkwin();
-				computer();
-				checkwin();
+		if (e.getSource() == b1) {
+			b1.setIcon(changedimension(X, 100, 100));
+			b1.setEnabled(false);
+			check[0][0] = 1;
+			checkwin();
+			computer();
+			checkwin();
 		}
-		if(e.getSource() == b2)
-		{
-				b2.setIcon(changedimension(X, 100, 100));
-				b2.setEnabled(false);
-				check[0][1] = 1; 
-				checkwin();
-				computer();
-				checkwin();
+		if (e.getSource() == b2) {
+			b2.setIcon(changedimension(X, 100, 100));
+			b2.setEnabled(false);
+			check[0][1] = 1;
+			checkwin();
+			computer();
+			checkwin();
 		}
-		if(e.getSource() == b3)
-		{
+		if (e.getSource() == b3) {
 			b3.setIcon(changedimension(X, 100, 100));
 			b3.setEnabled(false);
-			check[0][2] = 1; 
+			check[0][2] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if(e.getSource() == b4)
-		{
+		if (e.getSource() == b4) {
 			b4.setIcon(changedimension(X, 100, 100));
 			b4.setEnabled(false);
-			check[1][0] = 1; 
+			check[1][0] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if(e.getSource() == b5)
-		{
+		if (e.getSource() == b5) {
 			b5.setIcon(changedimension(X, 100, 100));
 			b5.setEnabled(false);
-			check[1][1] = 1; 
+			check[1][1] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if(e.getSource() == b6)
-		{
+		if (e.getSource() == b6) {
 			b6.setIcon(changedimension(X, 100, 100));
 			b6.setEnabled(false);
-			check[1][2] = 1; 
+			check[1][2] = 1;
 			computer();
 		}
-		if(e.getSource() == b7)
-		{
+		if (e.getSource() == b7) {
 			b7.setIcon(changedimension(X, 100, 100));
 			b7.setEnabled(false);
-			check[2][0] = 1; 
+			check[2][0] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if(e.getSource() == b8)
-		{
+		if (e.getSource() == b8) {
 			b8.setIcon(changedimension(X, 100, 100));
 			b8.setEnabled(false);
-			check[2][1] = 1; 
+			check[2][1] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if(e.getSource() == b9)
-		{
+		if (e.getSource() == b9) {
 			b9.setIcon(changedimension(X, 100, 100));
 			b9.setEnabled(false);
-			check[2][2] = 1; 
+			check[2][2] = 1;
 			computer();
 		}
 	}
-	public void setwin(int i)
-	{
-		if(i == 0) 
-		{
+
+	public void setwin(int i) {
+		if (i == 0) {
 			winlose.setVisible(true);
 			disableall();
-		}
-		else 
-		{
+		} else {
 			winlose.setText("You Lose !!");
 			winlose.setVisible(true);
 			disableall();
 		}
 	}
-	public void disableall()
-	{
+
+	public void disableall() {
 		b1.setEnabled(false);
 		b2.setEnabled(false);
 		b3.setEnabled(false);
@@ -468,8 +422,8 @@ public class Game implements ActionListener
 		b8.setEnabled(false);
 		b9.setEnabled(false);
 	}
-	public void enableall()
-	{
+
+	public void enableall() {
 		b1.setEnabled(true);
 		b2.setEnabled(true);
 		b3.setEnabled(true);
@@ -480,37 +434,53 @@ public class Game implements ActionListener
 		b8.setEnabled(true);
 		b9.setEnabled(true);
 	}
-	public void checkwin()
-	{	
-		//1row
-		if(check[0][0] == 1 && check[0][1] == 1 && check[0][2] == 1) setwin(0);
-		if(check[0][0] == 2 && check[0][1] == 2 && check[0][2] == 2) setwin(1);
 
-		//2row
-		if(check[1][0] == 1 && check[1][1] == 1 && check[1][2] == 1) setwin(0);
-		if(check[1][0] == 2 && check[1][1] == 2 && check[1][2] == 2) setwin(1);
+	public void checkwin() {
+		// 1row
+		if (check[0][0] == 1 && check[0][1] == 1 && check[0][2] == 1)
+			setwin(0);
+		if (check[0][0] == 2 && check[0][1] == 2 && check[0][2] == 2)
+			setwin(1);
 
-		//3row
-		if(check[2][0] == 1 && check[2][1] == 1 && check[2][2] == 1) setwin(0);
-		if(check[2][0] == 2 && check[2][1] == 2 && check[2][2] == 2) setwin(1);
+		// 2row
+		if (check[1][0] == 1 && check[1][1] == 1 && check[1][2] == 1)
+			setwin(0);
+		if (check[1][0] == 2 && check[1][1] == 2 && check[1][2] == 2)
+			setwin(1);
 
-		//1column
-		if(check[0][0] == 1 && check[1][0] == 1 && check[2][0] == 1) setwin(0);
-		if(check[0][0] == 2 && check[1][0] == 2 && check[2][0] == 2) setwin(1);
+		// 3row
+		if (check[2][0] == 1 && check[2][1] == 1 && check[2][2] == 1)
+			setwin(0);
+		if (check[2][0] == 2 && check[2][1] == 2 && check[2][2] == 2)
+			setwin(1);
 
-		//2column
-		if(check[0][1] == 1 && check[1][1] == 1 && check[2][1] == 1) setwin(0);
-		if(check[0][1] == 2 && check[1][1] == 2 && check[2][1] == 2) setwin(1);
+		// 1column
+		if (check[0][0] == 1 && check[1][0] == 1 && check[2][0] == 1)
+			setwin(0);
+		if (check[0][0] == 2 && check[1][0] == 2 && check[2][0] == 2)
+			setwin(1);
 
-		//3column
-		if(check[0][2] == 1 && check[1][2] == 1 && check[2][2] == 1) setwin(0);
-		if(check[0][2] == 2 && check[1][2] == 2 && check[2][2] == 2) setwin(1);
+		// 2column
+		if (check[0][1] == 1 && check[1][1] == 1 && check[2][1] == 1)
+			setwin(0);
+		if (check[0][1] == 2 && check[1][1] == 2 && check[2][1] == 2)
+			setwin(1);
 
-		//diagnol
-		if(check[0][0] == 1 && check[1][1] == 1 && check[2][2] == 1) setwin(0);
-		if(check[0][0] == 2 && check[1][1] == 2 && check[2][2] == 2) setwin(1);
+		// 3column
+		if (check[0][2] == 1 && check[1][2] == 1 && check[2][2] == 1)
+			setwin(0);
+		if (check[0][2] == 2 && check[1][2] == 2 && check[2][2] == 2)
+			setwin(1);
 
-		if(check[0][2] == 1 && check[1][1] == 1 && check[2][0] == 1) setwin(0);
-		if(check[0][2] == 2 && check[1][1] == 2 && check[2][0] == 2) setwin(1);
+		// diagnol
+		if (check[0][0] == 1 && check[1][1] == 1 && check[2][2] == 1)
+			setwin(0);
+		if (check[0][0] == 2 && check[1][1] == 2 && check[2][2] == 2)
+			setwin(1);
+
+		if (check[0][2] == 1 && check[1][1] == 1 && check[2][0] == 1)
+			setwin(0);
+		if (check[0][2] == 2 && check[1][1] == 2 && check[2][0] == 2)
+			setwin(1);
 	}
 }
