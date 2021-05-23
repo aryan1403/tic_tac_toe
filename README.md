@@ -4,7 +4,7 @@ A GUI Based Application written in Java Swing.
 I will Updating This Code in the Future for improved Code and better functionalities.
 
 ## Language
-  Try-Peaks is made in Pure Java Swing ;)
+  Tic Tac Toe is made in Pure Java Swing ;)
   
   [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)]()
   
