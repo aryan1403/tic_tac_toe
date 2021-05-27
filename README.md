@@ -1,7 +1,7 @@
 # Tic Tac Toe
 A simple JAVA GUI tic tac toe Game
 A GUI Based Application written in Java Swing. 
-I will Updating This Code in the Future for improved Code and better functionalities.
+I will be Updating This Code in the Future for improved Code and better functionalities.
 
 ## Language
   Tic Tac Toe is made in Pure Java Swing ;)
