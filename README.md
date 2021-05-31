@@ -9,7 +9,7 @@ I will be Updating This Code in the Future for improved Code and better function
   [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)]()
   
 ## OS
-   This Program doesn't Depend on any os you can run it in on Windows, Mac or Linux if you have Java Installed.
+   This Program doesn't Depend on any specific OS you can run it in on Windows, Mac or Linux if you have Java Installed.
    
    Some of the list of OS which I have tested this program are :-
    
