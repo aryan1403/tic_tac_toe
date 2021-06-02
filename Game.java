@@ -421,24 +421,51 @@ public class Game implements ActionListener {
 	public void setwin(int i) {
 		if (i == 0) {
 			winlose.setVisible(true);
-			disableall();
+			disableRest();
 		} else {
 			winlose.setText("You Lose !!");
 			winlose.setVisible(true);
-			disableall();
+			disableRest();
 		}
 	}
 
-	public void disableall() {
-		b1.setEnabled(false);
-		b2.setEnabled(false);
-		b3.setEnabled(false);
-		b4.setEnabled(false);
-		b5.setEnabled(false);
-		b6.setEnabled(false);
-		b7.setEnabled(false);
-		b8.setEnabled(false);
-		b9.setEnabled(false);
+	public void disableRest() {
+		if (meowchecker(1) == true) {
+			b1.setEnabled(false);
+			b1.setIcon(null);
+		}
+		if (meowchecker(2) == true) {
+			b2.setEnabled(false);
+			b2.setIcon(null);
+		}
+		if (meowchecker(3) == true) {
+			b3.setEnabled(false);
+			b3.setIcon(null);
+		}
+		if (meowchecker(4) == true) {
+			b4.setEnabled(false);
+			b4.setIcon(null);
+		}
+		if (meowchecker(5) == true) {
+			b5.setEnabled(false);
+			b5.setIcon(null);
+		}
+		if (meowchecker(6) == true) {
+			b6.setEnabled(false);
+			b6.setIcon(null);
+		}
+		if (meowchecker(7) == true) {
+			b7.setEnabled(false);
+			b7.setIcon(null);
+		}
+		if (meowchecker(8) == true) {
+			b8.setEnabled(false);
+			b8.setIcon(null);
+		}
+		if (meowchecker(9) == true) {
+			b9.setEnabled(false);
+			b9.setIcon(null);
+		}
 	}
 
 	public void enableall() {
