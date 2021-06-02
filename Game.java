@@ -329,6 +329,11 @@ public class Game implements ActionListener {
 		checkwin();
 		if (e.getSource() == restart) {
 			enableall();
+			for (int i = 0; i < check.length; i++) {
+				for (int j = 0; j < check.length; j++) {
+					check[i][j] = 0;
+				}
+			}
 		}
 		if (e.getSource() == b1) {
 			b1.setIcon(changedimension(X, 100, 100));
@@ -425,14 +430,23 @@ public class Game implements ActionListener {
 
 	public void enableall() {
 		b1.setEnabled(true);
+		b1.setIcon(null);
 		b2.setEnabled(true);
+		b2.setIcon(null);
 		b3.setEnabled(true);
+		b3.setIcon(null);
 		b4.setEnabled(true);
+		b4.setIcon(null);
 		b5.setEnabled(true);
+		b5.setIcon(null);
 		b6.setEnabled(true);
+		b6.setIcon(null);
 		b7.setEnabled(true);
+		b7.setIcon(null);
 		b8.setEnabled(true);
+		b8.setIcon(null);
 		b9.setEnabled(true);
+		b9.setIcon(null);
 	}
 
 	public void checkwin() {
