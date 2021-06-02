@@ -342,6 +342,9 @@ public class Game implements ActionListener {
 					check[i][j] = 0;
 				}
 			}
+			for (int i = 0; i < meow.length; i++) {
+				meow[i] = 0;
+			}
 			winlose.setVisible(false);
 		}
 		if (e.getSource() == b1 && meowchecker(1) == true) {
