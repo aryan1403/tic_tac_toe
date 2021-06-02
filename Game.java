@@ -52,6 +52,7 @@ public class Game implements ActionListener {
 	int[] arr = new int[9];
 	int[] test = new int[9];
 	int[][] check = new int[3][3];
+	int[] meow = new int[10];
 
 	Game() {
 		exit.setBounds(450, 0, 50, 50);
@@ -215,47 +216,47 @@ public class Game implements ActionListener {
 	}
 
 	public int check() {
-		if (b1.isEnabled() == true) {
+		if (meowchecker(1) == true) {
 			counter++;
 			arr[counter - 1] = 1;
 			System.out.println(arr[counter - 1]);
 		}
-		if (b2.isEnabled() == true) {
+		if (meowchecker(2) == true) {
 			counter++;
 			arr[counter - 1] = 2;
 			System.out.println(arr[counter - 1]);
 		}
-		if (b3.isEnabled() == true) {
+		if (meowchecker(3) == true) {
 			counter++;
 			arr[counter - 1] = 3;
 			System.out.println(arr[counter - 1]);
 		}
-		if (b4.isEnabled() == true) {
+		if (meowchecker(4) == true) {
 			counter++;
 			arr[counter - 1] = 4;
 			System.out.println(arr[counter - 1]);
 		}
-		if (b5.isEnabled() == true) {
+		if (meowchecker(5) == true) {
 			counter++;
 			arr[counter - 1] = 5;
 			System.out.println(arr[counter - 1]);
 		}
-		if (b6.isEnabled() == true) {
+		if (meowchecker(6) == true) {
 			counter++;
 			arr[counter - 1] = 6;
 			System.out.println(arr[counter - 1]);
 		}
-		if (b7.isEnabled() == true) {
+		if (meowchecker(7) == true) {
 			counter++;
 			arr[counter - 1] = 7;
 			System.out.println(arr[counter - 1]);
 		}
-		if (b8.isEnabled() == true) {
+		if (meowchecker(8) == true) {
 			counter++;
 			arr[counter - 1] = 8;
 			System.out.println(arr[counter - 1]);
 		}
-		if (b9.isEnabled() == true) {
+		if (meowchecker(9) == true) {
 			counter++;
 			arr[counter - 1] = 9;
 			System.out.println(arr[counter - 1]);
@@ -272,50 +273,47 @@ public class Game implements ActionListener {
 		res = arr[temp];
 		System.out.println("arr[temp] = " + arr[temp]);
 		counter = 0;
-		/*
-		 * while(check(res) == false) { getfreeSpaces(); }
-		 */
 		System.out.println("The Free Space Choosed is : " + res);
 		return res;
 	}
 
 	public void computer() {
 		int b = getfreeSpaces();
-		if (b == 1) {
+		if (b == 1 && meowchecker(1) == true) {
 			b1.setIcon(changedimension(Y, 100, 100));
-			b1.setEnabled(false);
+			meow[1] = 1;
 			check[0][0] = 2;
-		} else if (b == 2) {
+		} else if (b == 2 && meowchecker(2) == true) {
 			b2.setIcon(changedimension(Y, 100, 100));
-			b2.setEnabled(false);
+			meow[2] = 1;
 			check[0][1] = 2;
-		} else if (b == 3) {
+		} else if (b == 3 && meowchecker(3) == true) {
 			b3.setIcon(changedimension(Y, 100, 100));
-			b3.setEnabled(false);
+			meow[3] = 1;
 			check[0][2] = 2;
-		} else if (b == 4) {
+		} else if (b == 4 && meowchecker(4) == true) {
 			b4.setIcon(changedimension(Y, 100, 100));
-			b4.setEnabled(false);
+			meow[4] = 1;
 			check[1][0] = 2;
-		} else if (b == 5) {
+		} else if (b == 5 && meowchecker(5) == true) {
 			b5.setIcon(changedimension(Y, 100, 100));
-			b5.setEnabled(false);
+			meow[5] = 1;
 			check[1][1] = 2;
-		} else if (b == 6) {
+		} else if (b == 6 && meowchecker(6) == true) {
 			b6.setIcon(changedimension(Y, 100, 100));
-			b6.setEnabled(false);
+			meow[6] = 1;
 			check[1][2] = 2;
-		} else if (b == 7) {
+		} else if (b == 7 && meowchecker(7) == true) {
 			b7.setIcon(changedimension(Y, 100, 100));
-			b7.setEnabled(false);
+			meow[7] = 1;
 			check[2][0] = 2;
-		} else if (b == 8) {
+		} else if (b == 8 && meowchecker(8) == true) {
 			b8.setIcon(changedimension(Y, 100, 100));
-			b8.setEnabled(false);
+			meow[8] = 1;
 			check[2][1] = 2;
-		} else if (b == 9) {
+		} else if (b == 9 && meowchecker(9) == true) {
 			b9.setIcon(changedimension(Y, 100, 100));
-			b9.setEnabled(false);
+			meow[9] = 1;
 			check[2][2] = 2;
 		}
 	}
@@ -324,115 +322,174 @@ public class Game implements ActionListener {
 		new Game();
 	}
 
+	public void meowmeow(int n) {
+		meow[n] = 1;
+	}
+
+	public boolean meowchecker(int n) {
+		if (meow[n] == 0)
+			return true;
+		return false;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		checkwin();
 		if (e.getSource() == restart) {
 			enableall();
+			for (int i = 0; i < check.length; i++) {
+				for (int j = 0; j < check.length; j++) {
+					check[i][j] = 0;
+				}
+			}
+			for (int i = 0; i < meow.length; i++) {
+				meow[i] = 0;
+			}
+			winlose.setVisible(false);
 		}
-		if (e.getSource() == b1) {
+		if (e.getSource() == b1 && meowchecker(1) == true) {
 			b1.setIcon(changedimension(X, 100, 100));
-			b1.setEnabled(false);
+			meow[1] = 1;
 			check[0][0] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if (e.getSource() == b2) {
+		if (e.getSource() == b2 && meowchecker(2) == true) {
 			b2.setIcon(changedimension(X, 100, 100));
-			b2.setEnabled(false);
+			meow[2] = 1;
 			check[0][1] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if (e.getSource() == b3) {
+		if (e.getSource() == b3 && meowchecker(3) == true) {
 			b3.setIcon(changedimension(X, 100, 100));
-			b3.setEnabled(false);
+			meow[3] = 1;
 			check[0][2] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if (e.getSource() == b4) {
+		if (e.getSource() == b4 && meowchecker(4) == true) {
 			b4.setIcon(changedimension(X, 100, 100));
-			b4.setEnabled(false);
+			meow[4] = 1;
 			check[1][0] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if (e.getSource() == b5) {
+		if (e.getSource() == b5 && meowchecker(5) == true) {
 			b5.setIcon(changedimension(X, 100, 100));
-			b5.setEnabled(false);
+			meow[5] = 1;
 			check[1][1] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if (e.getSource() == b6) {
+		if (e.getSource() == b6 && meowchecker(6) == true) {
 			b6.setIcon(changedimension(X, 100, 100));
-			b6.setEnabled(false);
+			meow[6] = 1;
 			check[1][2] = 1;
+			checkwin();
 			computer();
+			checkwin();
 		}
-		if (e.getSource() == b7) {
+		if (e.getSource() == b7 && meowchecker(7) == true) {
 			b7.setIcon(changedimension(X, 100, 100));
-			b7.setEnabled(false);
+			meow[7] = 1;
 			check[2][0] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if (e.getSource() == b8) {
+		if (e.getSource() == b8 && meowchecker(8) == true) {
 			b8.setIcon(changedimension(X, 100, 100));
-			b8.setEnabled(false);
+			meow[8] = 1;
 			check[2][1] = 1;
 			checkwin();
 			computer();
 			checkwin();
 		}
-		if (e.getSource() == b9) {
+		if (e.getSource() == b9 && meowchecker(9) == true) {
 			b9.setIcon(changedimension(X, 100, 100));
-			b9.setEnabled(false);
+			meow[9] = 1;
 			check[2][2] = 1;
+			checkwin();
 			computer();
+			checkwin();
 		}
 	}
 
 	public void setwin(int i) {
 		if (i == 0) {
 			winlose.setVisible(true);
-			disableall();
+			disableRest();
 		} else {
 			winlose.setText("You Lose !!");
 			winlose.setVisible(true);
-			disableall();
+			disableRest();
 		}
 	}
 
-	public void disableall() {
-		b1.setEnabled(false);
-		b2.setEnabled(false);
-		b3.setEnabled(false);
-		b4.setEnabled(false);
-		b5.setEnabled(false);
-		b6.setEnabled(false);
-		b7.setEnabled(false);
-		b8.setEnabled(false);
-		b9.setEnabled(false);
+	public void disableRest() {
+		if (meowchecker(1) == true) {
+			b1.setEnabled(false);
+			b1.setIcon(null);
+		}
+		if (meowchecker(2) == true) {
+			b2.setEnabled(false);
+			b2.setIcon(null);
+		}
+		if (meowchecker(3) == true) {
+			b3.setEnabled(false);
+			b3.setIcon(null);
+		}
+		if (meowchecker(4) == true) {
+			b4.setEnabled(false);
+			b4.setIcon(null);
+		}
+		if (meowchecker(5) == true) {
+			b5.setEnabled(false);
+			b5.setIcon(null);
+		}
+		if (meowchecker(6) == true) {
+			b6.setEnabled(false);
+			b6.setIcon(null);
+		}
+		if (meowchecker(7) == true) {
+			b7.setEnabled(false);
+			b7.setIcon(null);
+		}
+		if (meowchecker(8) == true) {
+			b8.setEnabled(false);
+			b8.setIcon(null);
+		}
+		if (meowchecker(9) == true) {
+			b9.setEnabled(false);
+			b9.setIcon(null);
+		}
 	}
 
 	public void enableall() {
 		b1.setEnabled(true);
+		b1.setIcon(null);
 		b2.setEnabled(true);
+		b2.setIcon(null);
 		b3.setEnabled(true);
+		b3.setIcon(null);
 		b4.setEnabled(true);
+		b4.setIcon(null);
 		b5.setEnabled(true);
+		b5.setIcon(null);
 		b6.setEnabled(true);
+		b6.setIcon(null);
 		b7.setEnabled(true);
+		b7.setIcon(null);
 		b8.setEnabled(true);
+		b8.setIcon(null);
 		b9.setEnabled(true);
+		b9.setIcon(null);
 	}
 
 	public void checkwin() {
