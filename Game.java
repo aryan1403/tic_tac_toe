@@ -272,9 +272,6 @@ public class Game implements ActionListener {
 		res = arr[temp];
 		System.out.println("arr[temp] = " + arr[temp]);
 		counter = 0;
-		/*
-		 * while(check(res) == false) { getfreeSpaces(); }
-		 */
 		System.out.println("The Free Space Choosed is : " + res);
 		return res;
 	}
@@ -334,6 +331,7 @@ public class Game implements ActionListener {
 					check[i][j] = 0;
 				}
 			}
+			winlose.setVisible(false);
 		}
 		if (e.getSource() == b1) {
 			b1.setIcon(changedimension(X, 100, 100));
