@@ -85,7 +85,7 @@ public class Game implements ActionListener {
 			}
 		});
 
-		restart.setBounds(400, 0, 50, 50);
+		restart.setBounds(390, 0, 60, 50);
 		restart.setFocusable(false);
 		restart.setIcon(changedimension(repeat, 60, 50));
 		restart.addActionListener(this);
