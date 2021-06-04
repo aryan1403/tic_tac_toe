@@ -20,7 +20,7 @@ public class Game implements ActionListener {
 	JPanel headpanel = new JPanel();
 	JPanel mainpanel = new JPanel();
 	JPanel bottompanel = new JPanel();
-	JPanel middlepanel = new JPanel();
+	JLabel middlepanel = new JLabel();
 
 	JButton settings = new JButton();
 	JButton exit = new JButton();
@@ -39,6 +39,9 @@ public class Game implements ActionListener {
 	ImageIcon repeat1 = new ImageIcon("res/images/repeat1.jpeg");
 	ImageIcon X = new ImageIcon("res/images/X.jpeg");
 	ImageIcon Y = new ImageIcon("res/images/O.jpeg");
+
+	ImageIcon icon = new ImageIcon("res/images/bg.jpg");
+	Image im = icon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
 
 	JButton b1 = new JButton();
 	JButton b2 = new JButton();
@@ -133,42 +136,60 @@ public class Game implements ActionListener {
 
 		b1.setBounds(0, 0, 100, 100);
 		b1.setFocusable(false);
+		b1.setOpaque(false);
+		b1.setContentAreaFilled(false);
 		b1.addActionListener(this);
 
 		b2.setBounds(100, 0, 100, 100);
 		b2.setFocusable(false);
+		b2.setOpaque(false);
+		b2.setContentAreaFilled(false);
 		b2.addActionListener(this);
 
 		b3.setBounds(200, 0, 100, 100);
 		b3.setFocusable(false);
+		b3.setOpaque(false);
+		b3.setContentAreaFilled(false);
 		b3.addActionListener(this);
 
 		b4.setBounds(0, 100, 100, 100);
 		b4.setFocusable(false);
+		b4.setOpaque(false);
+		b4.setContentAreaFilled(false);
 		b4.addActionListener(this);
 
 		b5.setBounds(100, 100, 100, 100);
 		b5.setFocusable(false);
+		b5.setOpaque(false);
+		b5.setContentAreaFilled(false);
 		b5.addActionListener(this);
 
 		b6.setBounds(200, 100, 100, 100);
 		b6.setFocusable(false);
+		b6.setOpaque(false);
+		b6.setContentAreaFilled(false);
 		b6.addActionListener(this);
 
 		b7.setBounds(0, 200, 100, 100);
 		b7.setFocusable(false);
+		b7.setOpaque(false);
+		b7.setContentAreaFilled(false);
 		b7.addActionListener(this);
 
 		b8.setBounds(100, 200, 100, 100);
 		b8.setFocusable(false);
+		b8.setOpaque(false);
+		b8.setContentAreaFilled(false);
 		b8.addActionListener(this);
 
 		b9.setBounds(200, 200, 100, 100);
 		b9.setFocusable(false);
+		b9.setOpaque(false);
+		b9.setContentAreaFilled(false);
 		b9.addActionListener(this);
 
 		middlepanel.setBounds(100, 100, 300, 300);
-		middlepanel.setBackground(Color.gray);
+		middlepanel.setIcon(new ImageIcon(im));
 		middlepanel.add(settings);
 		middlepanel.setLayout(null);
 		middlepanel.add(b1);
