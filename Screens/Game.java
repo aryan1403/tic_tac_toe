@@ -355,20 +355,24 @@ public class Game implements ActionListener {
 		return false;
 	}
 
+	public void reset() {
+		enableall();
+		for (int i = 0; i < check.length; i++) {
+			for (int j = 0; j < check.length; j++) {
+				check[i][j] = 0;
+			}
+		}
+		for (int i = 0; i < meow.length; i++) {
+			meow[i] = 0;
+		}
+		winlose.setVisible(false);
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		checkwin();
 		if (e.getSource() == restart) {
-			enableall();
-			for (int i = 0; i < check.length; i++) {
-				for (int j = 0; j < check.length; j++) {
-					check[i][j] = 0;
-				}
-			}
-			for (int i = 0; i < meow.length; i++) {
-				meow[i] = 0;
-			}
-			winlose.setVisible(false);
+			reset();
 		}
 		if (e.getSource() == b1 && meowchecker(1) == true) {
 			b1.setIcon(changedimension(X, 100, 100));
@@ -446,12 +450,21 @@ public class Game implements ActionListener {
 
 	public void setwin(int i) {
 		if (i == 0) {
+			winlose.setText("You Win !!");
 			winlose.setVisible(true);
 			disableRest();
+			frame.dispose();
+			GameOver g = new GameOver();
+			g.checkResult(1);
+			g.start();
 		} else {
 			winlose.setText("You Lose !!");
 			winlose.setVisible(true);
 			disableRest();
+			frame.dispose();
+			GameOver g = new GameOver();
+			g.checkResult(0);
+			g.start();
 		}
 	}
 
