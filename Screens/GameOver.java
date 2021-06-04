@@ -48,8 +48,8 @@ public class GameOver implements ActionListener {
         frame.setResizable(false);
         frame.setUndecorated(true);
         frame.getContentPane().setBackground(Color.black);
-        frame.setVisible(true);
         frame.add(mainlabel);
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
