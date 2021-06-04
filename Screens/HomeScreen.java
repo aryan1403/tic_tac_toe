@@ -55,6 +55,7 @@ public class HomeScreen implements ActionListener {
         // start.setBorderPainted(false);
         start.setContentAreaFilled(false);
         start.setBorder(BorderFactory.createMatteBorder(0, 0, 4, 4, new Color(0, 214, 203)));
+
         start.setForeground(Color.white);
         start.setLayout(null);
         start.addActionListener(this);
