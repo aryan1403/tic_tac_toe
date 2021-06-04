@@ -1,3 +1,5 @@
+package Screens;
+
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -54,7 +56,7 @@ public class Game implements ActionListener {
 	int[][] check = new int[3][3];
 	int[] meow = new int[10];
 
-	Game() {
+	public Game() {
 		exit.setBounds(450, 0, 50, 50);
 		exit.setFocusable(false);
 		exit.setIcon(changedimension(exiticon, 50, 50));
