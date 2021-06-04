@@ -227,9 +227,9 @@ public class Game implements ActionListener {
 		frame.setLayout(null);
 		frame.setResizable(false);
 		frame.setUndecorated(true);
-		frame.setVisible(true);
 		frame.add(mainpanel);
 		frame.setIconImage(changedimension(frameicon, 50, 50).getImage());
+		frame.setVisible(true);
 	}
 
 	public ImageIcon changedimension(ImageIcon icon, int x, int y) {
