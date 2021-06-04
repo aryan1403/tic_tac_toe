@@ -76,8 +76,8 @@ public class HomeScreen implements ActionListener {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setUndecorated(true);
-        frame.setVisible(true);
         frame.add(mainpanel);
+        frame.setVisible(true);
     }
 
     @Override
